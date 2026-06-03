@@ -1,16 +1,16 @@
 import React from 'react';
 import CompanyProfile from './CompanyProfile';
 import { getUserSession } from '@/lib/core/session';
+import { getRecruiterCompany } from '@/lib/api/companies';
 
 const CompanyPage = async () => {
 
     const user = await getUserSession();
-    
-    console.log("User session in CompanyPage:", user);
+    const company = await getRecruiterCompany(user?.id);
 
     return (
         <div>
-            <CompanyProfile recruiter={user}></CompanyProfile>
+            <CompanyProfile recruiter={user} recruiterCompany={company}></CompanyProfile>
         </div>
     );
 };
