@@ -27,6 +27,7 @@ const PricingPage = () => {
     const seekerPlans = [
         {
             name: 'Free',
+            id: 'seeker_free',
             price: '$0',
             period: '/forever',
             description: 'Essential features for getting started and organizing your initial search tracking.',
@@ -42,6 +43,7 @@ const PricingPage = () => {
         },
         {
             name: 'Pro',
+            id: 'seeker_pro',
             price: '$19',
             period: '/month',
             description: 'Our most popular option for serious active candidates looking to rapidly accelerate landing a role.',
@@ -57,6 +59,7 @@ const PricingPage = () => {
         },
         {
             name: 'Premium',
+            id: 'seeker_premium',
             price: '$39',
             period: '/month',
             description: 'Uncapped potential and priority visibility tools tailored for elite competitive talent placement.',
@@ -75,6 +78,7 @@ const PricingPage = () => {
     const recruiterPlans = [
         {
             name: 'Free',
+            id: 'recruiter_free',
             price: '$0',
             period: '/forever',
             description: 'Ideal baseline solution matching startups launching their initial hiring infrastructure pipeline.',
@@ -90,6 +94,7 @@ const PricingPage = () => {
         },
         {
             name: 'Growth',
+            id: 'recruiter_growth',
             price: '$49',
             period: '/month',
             description: 'Expanded allocation built for expanding companies with active multi-departmental team tracks.',
@@ -105,6 +110,7 @@ const PricingPage = () => {
         },
         {
             name: 'Enterprise',
+            id: 'recruiter_enterprise',
             price: '$149',
             period: '/month',
             description: 'High performance structural operations for organizations with continuous large-scale talent acquisition.',
@@ -239,6 +245,7 @@ const PricingPage = () => {
                             {/* Plan Action CTA Callout Anchor Point */}
                             <div className="mt-8">
                                 <form action="/api/checkout_sessions" method="POST">
+                                    <input type="hidden" name="plan_id" value={plan.id} />
                                     <section>
                                         <button type="submit" role="link"
                                             className={`block w-full text-center text-xs font-semibold px-4 py-3 rounded-xl transition duration-200 ${plan.popular
